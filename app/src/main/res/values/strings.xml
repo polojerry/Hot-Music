@@ -6,5 +6,8 @@
     <string name="title_bottom_nav_albums">Albums</string>
     <string name="title_bottom_nav_tracks">Tracks</string>
     <string name="title_bottom_nav_artists">Artists</string>
+    <string name="toolbar_title_albums">Albums</string>
+    <string name="toolbar_title_tracks">Tracks</string>
+    <string name="toolbar_title_artists">Artists</string>
 
 </resources>

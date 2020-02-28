@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="@string/title_bottom_nav_albums"
-        android:icon="@drawable/ic_album"
-        android:id="@+id/topAlbumsFragment"/>
+    <item android:title="@string/title_bottom_nav_artists"
+        android:icon="@drawable/ic_user"
+        android:id="@+id/topArtistsFragment"/>
 
     <item android:title="@string/title_bottom_nav_tracks"
         android:icon="@drawable/ic_music"
         android:id="@+id/topTracksFragment"/>
 
-    <item android:title="@string/title_bottom_nav_artists"
-        android:icon="@drawable/ic_user"
-        android:id="@+id/topArtistsFragment"/>
+
+    <item android:title="@string/title_bottom_nav_albums"
+        android:icon="@drawable/ic_album"
+        android:id="@+id/topAlbumsFragment"/>
 
 </menu>

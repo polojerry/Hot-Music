@@ -51,4 +51,20 @@ dependencies {
 
     //ViewModel and Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:$version_life_cycle"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+
+    //Coroutines and Retrofit Coroutines Adapter
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_kotlin_coroutines"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
+
+    //Kotshi
+    implementation "se.ansman.kotshi:api:2.2.3"
+    kapt "se.ansman.kotshi:compiler:2.2.3"
+
+
 }

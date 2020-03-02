@@ -5,6 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.polotechnologies.hotmusic.network.ArtistsResponse
 import com.polotechnologies.hotmusic.network.HotMusicApi
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,21 +19,28 @@ class TopArtistsViewModel : ViewModel() {
     val response: LiveData<String>
         get() = _response
 
+    private val viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
     init{
         getTopMusic()
     }
 
     private fun getTopMusic() {
-        HotMusicApi.retrofitService.getTopArtist().enqueue(object : Callback<ArtistsResponse> {
-            override fun onFailure(call: Call<ArtistsResponse>, t: Throwable) {
+        coroutineScope.launch {
+            val getTopMusic = HotMusicApi.retrofitService.getTopArtist()
+            try{
+                val topMusic = getTopMusic.await().artists.artist
+                _response.value = "Successfully fetched: ${topMusic.size}"
+            }
+            catch (t: Throwable){
                 _response.value = "Failed due to: ${t.localizedMessage}"
             }
+        }
 
-            override fun onResponse(call: Call<ArtistsResponse>, response: Response<ArtistsResponse>) {
-                _response.value = "Successfully fetched: ${response.body()?.artists?.artist?.size}"
-            }
-
-        })
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 }

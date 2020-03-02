@@ -1,6 +1,8 @@
 package com.polotechnologies.hotmusic.network
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -17,6 +19,7 @@ private val moshi = Moshi.Builder()
 //Retrofit Object
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(BASE_URL_TOP_ARTISTS)
     .build()
 
@@ -24,7 +27,8 @@ private val retrofit = Retrofit.Builder()
 interface HotMusicApiService {
 
     @GET("?method=chart.gettopartists&api_key=$API_KEY&format=json")
-    fun getTopArtist(): Call<ArtistsResponse>
+    fun getTopArtist():
+            Deferred<ArtistsResponse>
 }
 
 //TopArtist API object Implementation of the service

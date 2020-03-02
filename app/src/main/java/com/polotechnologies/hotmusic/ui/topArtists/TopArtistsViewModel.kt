@@ -3,15 +3,12 @@ package com.polotechnologies.hotmusic.ui.topArtists
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.polotechnologies.hotmusic.network.ArtistsResponse
+import com.polotechnologies.hotmusic.dataModel.Artist
 import com.polotechnologies.hotmusic.network.HotMusicApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class TopArtistsViewModel : ViewModel() {
 
@@ -19,20 +16,24 @@ class TopArtistsViewModel : ViewModel() {
     val response: LiveData<String>
         get() = _response
 
+    private val _topArtists = MutableLiveData<List<Artist>>()
+    val topArtist: LiveData<List<Artist>>
+        get() = _topArtists
+
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
-    init{
-        getTopMusic()
+
+    init {
+        getTopArtists()
     }
 
-    private fun getTopMusic() {
+    private fun getTopArtists() {
         coroutineScope.launch {
-            val getTopMusic = HotMusicApi.retrofitService.getTopArtist()
-            try{
-                val topMusic = getTopMusic.await().artists.artist
-                _response.value = "Successfully fetched: ${topMusic.size}"
-            }
-            catch (t: Throwable){
+            val getTopArtists = HotMusicApi.retrofitService.getTopArtist()
+            try {
+                val topArtists = getTopArtists.await().artists.artist
+                _topArtists.value = topArtists
+            } catch (t: Throwable) {
                 _response.value = "Failed due to: ${t.localizedMessage}"
             }
         }

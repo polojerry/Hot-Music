@@ -29,6 +29,7 @@ class TopArtistsFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(TopArtistsViewModel::class.java)
         mBinding.viewModel = mViewModel
 
+        mBinding.recyclerArtists.adapter = TopArtistRecyclerAdapter()
 
         return  mBinding.root
     }

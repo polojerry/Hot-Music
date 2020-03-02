@@ -4,12 +4,12 @@ import com.squareup.moshi.Json
 
 data class Artist (
     @Json (name = "name")val artist_name : String,
-    val play_count : String,
+    @Json( name = "playcount") val play_count : String,
     val listeners : String,
     @Json(name = "mbid") val m_bid : String,
     val url : String,
     val streamable : String,
-    @Json(name = "image")val images : List<ArtistImage>
+    @Json(name = "image")val image : List<ArtistImage>
 
 )
 

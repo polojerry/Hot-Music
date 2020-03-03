@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_top_albums" />
     <fragment
         android:id="@+id/topTracksFragment"
-        android:name="com.polotechnologies.hotmusic.ui.TopTracks.TopTracksFragment"
+        android:name="com.polotechnologies.hotmusic.ui.topTracks.TopTracksFragment"
         android:label="fragment_top_tracks"
         tools:layout="@layout/fragment_top_tracks" />
 </navigation>

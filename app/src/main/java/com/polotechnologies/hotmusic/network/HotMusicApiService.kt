@@ -34,6 +34,10 @@ interface HotMusicApiService {
     @GET("?method=chart.gettopartists&api_key=$API_KEY&format=json")
     fun getTopArtist():
             Deferred<ArtistsResponse>
+
+    @GET("?method=chart.gettoptracks&api_key=$API_KEY&format=json")
+    fun getTopTracks():
+            Deferred<TracksResponse>
 }
 
 //TopArtist API object Implementation of the service

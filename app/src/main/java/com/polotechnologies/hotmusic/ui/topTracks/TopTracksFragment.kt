@@ -27,6 +27,7 @@ class TopTracksFragment : Fragment() {
 
         mBinding.lifecycleOwner = this
         mBinding.viewModel = mViewModel
+        mBinding.recyclerTracks.adapter = TopTrackRecyclerAdapter()
 
         return mBinding.root
     }

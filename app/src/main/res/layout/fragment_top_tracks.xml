@@ -25,7 +25,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:spanCount="2"
-            tools:listitem="@layout/item_track" />
+            tools:listitem="@layout/item_track"
+            itemListTracks="@{viewModel.topTracks}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

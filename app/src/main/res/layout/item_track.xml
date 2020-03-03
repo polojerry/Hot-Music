@@ -31,6 +31,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/avatars"
+                    imageViewTracks="@{track}"
                     />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -42,7 +43,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_track"
-                    tools:text="Blinding Lights" />
+                    tools:text="Blinding Lights"
+                    android:text="@{track.track_name}"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,3 @@
-/*
 package com.polotechnologies.hotmusic.database
 
 import android.content.Context
@@ -7,10 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.polotechnologies.hotmusic.dataModel.Artist
-import com.polotechnologies.hotmusic.database.typeConverters.ArtistImageConverter
+import com.polotechnologies.hotmusic.database.typeConverters.ArtistImageConverterList
 
 @Database(entities = [Artist::class], version = 1, exportSchema = false)
-@TypeConverters(ArtistImageConverter::class)
+@TypeConverters(ArtistImageConverterList::class)
 abstract class HotMusicDatabase: RoomDatabase() {
 
     abstract val hotMusicDao : HotMusicDao
@@ -22,6 +21,7 @@ abstract class HotMusicDatabase: RoomDatabase() {
         fun getInstance(context: Context) : HotMusicDatabase {
             synchronized(this){
                 var instance =
+
                     INSTANCE
 
                 if(instance == null){
@@ -43,4 +43,4 @@ abstract class HotMusicDatabase: RoomDatabase() {
 
     }
 
-}*/
+}

@@ -1,4 +1,4 @@
-package com.polotechnologies.hotmusic.network
+package com.polotechnologies.hotmusic.network.responseDataModels
 
 import com.polotechnologies.hotmusic.dataModel.Artist
 

@@ -1,7 +1,9 @@
 package com.polotechnologies.hotmusic.dataModel
 
+import androidx.room.Entity
 import com.squareup.moshi.Json
 
+@Entity(tableName = "top_artists_table")
 data class Artist (
     @Json (name = "name")val artist_name : String,
     @Json( name = "playcount") val play_count : String,

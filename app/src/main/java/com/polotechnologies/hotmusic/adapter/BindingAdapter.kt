@@ -16,7 +16,7 @@ fun bind(recyclerView: RecyclerView, data : List<Artist>?){
 }
 
 @BindingAdapter("itemListTracks")
-fun bindTracks(recyclerView: RecyclerView, tracks : List<Track>?){
+fun bindView(recyclerView: RecyclerView, tracks : List<Track>?){
     val adapter = recyclerView.adapter as TopTrackRecyclerAdapter
     adapter.submitList(tracks)
 }
